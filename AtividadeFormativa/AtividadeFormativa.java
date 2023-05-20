@@ -95,9 +95,9 @@ public class AtividadeFormativa {
         }
         for (int i = 0; i < vetor.length; i+=2) {
             if(vetor[i]%2==0){
-
+                contPar++;
             }if(vetor[i]%2==1){
-                
+                contImpar++;
             }
         }
     }
