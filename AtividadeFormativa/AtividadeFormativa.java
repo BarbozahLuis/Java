@@ -70,8 +70,8 @@ public class AtividadeFormativa {
         System.out.println("O número de tentativas é"+contador);
     }
     public void exercicio3(){
-        int tamanho = rd.nextInt(100,1000);
-        int vetor[] = new int[tamanho];
+        //int tamanho = rd.nextInt(100,1000);
+        int vetor[] = new int[rd.nextInt(100,1000)];
         int contPar = 0;
         int contImpar = 1;
         int contadorPar = 1;
@@ -100,5 +100,7 @@ public class AtividadeFormativa {
                 contImpar++;
             }
         }
+        System.out.println("A quantidade de Nº pares é "+contPar);
+        System.out.println("A quantidade de Nº impares é "+contImpar);
     }
 }
