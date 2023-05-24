@@ -18,7 +18,7 @@ public class AtividadeFormativa {
                 matriz[i][j] = rd.nextInt(10);
 
             }
-        }
+        }//imprimir a matriz da posição I e J
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 System.out.println("Matriz[" + i + "][" + j + "]" + matriz[i][j]);
@@ -49,7 +49,7 @@ public class AtividadeFormativa {
         System.out.println("Digite um palpite");
         int sorteio = rd.nextInt(1000);
         int palpite = sc.nextInt();
-
+        //contador começa em 1 pois ja foi solicitado para o usuario digitar
         int contador = 1;
         while (palpite != sorteio) {
 
@@ -70,10 +70,10 @@ public class AtividadeFormativa {
         System.out.println("O número de tentativas é"+contador);
     }
     public void exercicio3(){
-        int tamanho = rd.nextInt(100,1000);
+        int tamanho = rd.nextInt(900)+100;
         int vetor[] = new int[tamanho];
         int contPar = 0;
-        int contImpar = 1;
+        int contImpar = 0;
         int contadorPar = 1;
         int contatorImpar=1;
         //preencher o vetor
@@ -88,17 +88,22 @@ public class AtividadeFormativa {
         for (int i = 0; i < vetor.length; i++) {
             
             if(vetor[i]%2==0){
-                System.out.println("Nº pares "+contPar++);
+                System.out.println("Nº pares "+vetor[i]);
             }else{
-                System.out.println("Nº impares "+contImpar++);
+                System.out.println("Nº impares "+vetor[i]);
             }
         }
         for (int i = 0; i < vetor.length; i+=2) {
             if(vetor[i]%2==0){
                 contPar++;
-            }if(vetor[i]%2==1){
+            }
+        }
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i]%2==1){
                 contImpar++;
             }
         }
-    }
+        System.out.println("Quantidade de numeros pares é"+contPar);
+        System.out.println("Quantidade de numeros impares é"+contImpar);
+    }   
 }

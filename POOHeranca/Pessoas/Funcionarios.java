@@ -1,6 +1,6 @@
 package POOHeranca.Pessoas;
 
-public class Funcionarios extends Pessoas{
+public class Funcionarios extends Pessoas{//extends serve pra estanciar a "super classe" podendo utilizar em outros arquivos caso ela seja super classe, consequentmente a classe funcionario é uma subclasse de pessoas
     int nCadastro;
     String setor;
     
