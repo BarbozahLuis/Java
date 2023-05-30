@@ -16,12 +16,12 @@ public class Pessoa{
         this.mesNascimento = mesNascimento;
         this.anoNascimento = anoNascimento;
     }
-    public pessoa() { 
+    public Pessoa() { 
         // construtor vazio      
     }
-    public String getNome() {
+    public String getNome() { //get vc busca algo
         return nome;
-    }
+    }//set vc altera algo no objeto
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -48,5 +48,22 @@ public class Pessoa{
     }
     public void setAnoNascimento(int anoNascimento) {
         this.anoNascimento = anoNascimento;
+    }
+    //outros metodos
+    //2 tipos de metodos void //return
+    public void imprimir(){
+        System.out.println("Nome: "+nome);
+        System.out.println("Altura: "+altura);
+        System.out.println("Data de Nascimento: "+diaNascimento+"/"+mesNascimento+"/"+anoNascimento);
+    }
+    public int getIdade(){
+        int idade;
+        if(diaNascimento<=30 && mesNascimento<=5){
+            idade = 2023-anoNascimento;
+        }else{
+            idade = 2023-anoNascimento - 1;
+        }
+        return idade;
+
     }
 }
