@@ -1,6 +1,6 @@
 package POOHeranca.Pessoas;
 
-public class Alunos extends Pessoas { //subclasse de pessoas
+public class Alunos extends Pessoas { //subclasse de pessoas (ao transformar uma classe em abstract, eu nao poderia utilizar ela como objeto ou criar um objeto dela no app.java)
     //atributos especificos
     private int nMatricula;
     private String curso;

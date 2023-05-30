@@ -16,7 +16,7 @@ public class Retangulo implements FigurasGeometricas{
     public void setAltura(int altura) {
         this.altura = altura;
     }
-    //contrutor
+    //contrutor com parâmetros e ele sempre tem o mesmo nome da classe
     public Retangulo(int base, int altura) {
         this.base = base;
         this.altura = altura;
