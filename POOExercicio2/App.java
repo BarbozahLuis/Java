@@ -3,7 +3,7 @@ package POOExercicio2;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
+
 
 public class App {
     public static void main(String[] args) {
@@ -16,6 +16,7 @@ public class App {
             // construtor de objetos
             pessoas[i] = new Agenda();
             // preencher os atributos
+            //pessoas[i].setNome(sc.next())
             pessoas[i].setNome("Pessoa" + i);
             pessoas[i].setAltura(i);
             pessoas[i].setIdade(i + 18);
@@ -27,7 +28,7 @@ public class App {
         boolean teste=true;
         String nomeDigitado = sc.next();// scanner ou JOptionPane
         while (!nomeDigitado.equalsIgnoreCase(pessoas[cont].getNome())) //equals é pra comparar string
-        {
+        {   
 
             cont++;
         }
