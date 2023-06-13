@@ -1,6 +1,6 @@
 package Projeto.Pessoas;
 
-public class PessoaFisica extends Pessoa {
+public class ContaPF extends Conta {
 
     String cpf;
 

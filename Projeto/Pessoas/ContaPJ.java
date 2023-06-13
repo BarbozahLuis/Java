@@ -1,6 +1,6 @@
 package Projeto.Pessoas;
 
-public class PessoaJuridica extends Pessoa{
+public class ContaPJ extends Conta{
     String cnpj;
 
     public String getCnpj() {

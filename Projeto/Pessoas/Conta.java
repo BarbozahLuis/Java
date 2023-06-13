@@ -1,6 +1,6 @@
 package Projeto.Pessoas;
 
-public class Pessoa {
+public class Conta {
     String nomeConta;
     String nConta;
     double saldo;
