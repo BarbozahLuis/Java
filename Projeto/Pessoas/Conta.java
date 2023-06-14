@@ -1,8 +1,10 @@
 package Projeto.Pessoas;
 
+import javax.swing.JOptionPane;
+
 public class Conta {
     String nomeConta;
-    String nConta;
+    int nConta;
     double saldo;
     
     //set get
@@ -12,11 +14,11 @@ public class Conta {
     public void setNomeConta(String nomeConta) {
         this.nomeConta = nomeConta;
     }
-    public String getnConta() {
+    public int getnConta() {
         return nConta;
     }
-    public void setnConta(String nConta) {
-        this.nConta = nConta;
+    public void setnConta(int i) {
+        this.nConta = i;
     }
     public double getSaldo() {
         return saldo;
@@ -24,5 +26,9 @@ public class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
+public void saque(){
+    double saque = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor do Saque"));
+        saldo -=saque;
 }
+}
+

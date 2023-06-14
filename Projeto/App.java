@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import Projeto.Pessoas.ContaPF;
 import Projeto.Pessoas.ContaPJ;
 
 public class App {
@@ -11,18 +12,20 @@ public class App {
         Scanner sc = new Scanner(System.in);
         // criar vetor para armazenar quantidade de contas poderão ser armazenada
         ContaPJ clientePJ[] = new ContaPJ[10];
+        ContaPF clientePF[] = new ContaPF[10];
         // começar meu banco
-        boolean aberto = true;
-        boolean inicio = true;
+        
+        
         int contPJ = 0;
         int contPF = 0;
-
+        boolean inicio = true;
         while (inicio) {
             int acao0 = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
                     + "\n 1-Acessar Conta PJ"
                     + "\n 2-Acessar Conta PF"));
 
             if (acao0 == 1) {
+                boolean aberto = true;
                 while (aberto) {
 
                     int acao = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
@@ -31,11 +34,11 @@ public class App {
                             + "\n 3-Sair"));
                     if (acao == 1) {// abrir a conta PJ
                         // criar um objeto
-                        clientePJ[contPJ] = new contaPJ();// chamei o contrutor
+                        clientePJ[contPJ] = new ContaPJ();// chamei o contrutor
                         // preencher os atributos do objeto
                         clientePJ[contPJ].setNomeConta(JOptionPane.showInputDialog("Informe o nome da empresa:"));
                         clientePJ[contPJ].setCnpj(JOptionPane.showInputDialog("Informe o CNPJ da empresa"));
-                        clientePJ[contPJ].setnConta(1000 + contPJ);
+                        clientePJ[contPJ].setnConta(1000+contPJ);
                         clientePJ[contPJ].setSaldo(0);
                         // acrescimo no contador
                         JOptionPane.showMessageDialog(null, "Conta Criada com sucesso");
@@ -62,12 +65,16 @@ public class App {
                                     + "\n 4-Realizar um empréstimo"
                                     + "\n 5-Sair da Conta"));
                             if (acao2 == 1) {
-                                JOptionPane.showMessageDialog("Seu Saldo é de R$ " + clientePJ[i].getSaldo());
-                            }
+                                JOptionPane.showMessageDialog(null,"Seu Saldo é de R$ " + clientePJ[i].getSaldo());
+                            }else if(acao2==2){
+                                clientePJ[i].saque();}
                         }
+                    }else{
+                        aberto = false;
                     }
                 }
             } else if (acao0 == 2) {
+                boolean aberto = true;
                 while (aberto) {
 
                     int acao = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
@@ -76,10 +83,10 @@ public class App {
                             + "\n 3-Sair"));
                     if (acao == 1) {// abrir a conta PF
                         // criar um objeto
-                        clientePF[contPF] = new contaPF();// chamei o contrutor
+                        clientePF[contPF] = new ContaPF();// chamei o contrutor
                         // preencher os atributos do objeto
                         clientePF[contPF].setNomeConta(JOptionPane.showInputDialog("Informe o nome da empresa:"));
-                        clientePF[contPF].setCnpj(JOptionPane.showInputDialog("Informe o CNPJ da empresa"));
+                        clientePF[contPF].setCpf(JOptionPane.showInputDialog("Informe o CNPJ da empresa"));
                         clientePF[contPF].setnConta(2000 + contPF);
                         clientePF[contPF].setSaldo(0);
                         // acrescimo no contador
@@ -107,12 +114,17 @@ public class App {
                                     + "\n 4-Realizar um empréstimo"
                                     + "\n 5-Sair da Conta"));
                             if (acao2 == 1) {
-                                JOptionPane.showMessageDialog("Seu Saldo é de R$ " + clientePJ[i].getSaldo());
+                                JOptionPane.showMessageDialog(null, "Seu Saldo é de R$ " + clientePJ[i].getSaldo());
+                            }else if(acao2==2){
+                                clientePF[i].saque();
                             }
+
                         }
+                    }else{
+                         aberto = false;
                     }
                 }
-            }
+            }else{inicio = false;}
         }
     }
 }
