@@ -28,11 +28,11 @@ public class App {
                 boolean aberto = true;
                 while (aberto) {
 
-                    int acao = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
+                    int acao1 = Integer.parseInt(JOptionPane.showInputDialog("Informe a ação desejada:"
                             + "\n 1-Abrir Conta PJ"
                             + "\n 2-Acessar Conta PJ"
                             + "\n 3-Sair"));
-                    if (acao == 1) {// abrir a conta PJ
+                    if (acao1 == 1) {// abrir a conta PJ
                         // criar um objeto
                         clientePJ[contPJ] = new ContaPJ();// chamei o contrutor
                         // preencher os atributos do objeto
@@ -43,7 +43,7 @@ public class App {
                         // acrescimo no contador
                         JOptionPane.showMessageDialog(null, "Conta Criada com sucesso");
                         contPJ++;
-                    } else if (acao == 2) {// acessar uma conta já criada
+                    } else if (acao1 == 2) {// acessar uma conta já criada
                         // localizar a conta no vetor
                         int i;// contador
                         int nContaBuscada = Integer
@@ -73,6 +73,11 @@ public class App {
                             }else if(acao2==4){
                                 clientePJ[i].emprestimoPJ();
                                 JOptionPane.showMessageDialog(null,"Valor Aprovado" + clientePJ[i].getEmprestimoPJ());
+                                JOptionPane.showMessageDialog(null, "Valor a ser pago é: " + clientePJ[i].getValorPagarPJ());
+                            }else if(acao2==5){
+                                acesso = false;
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Digite uma operação válida");
                             }
                         }
                     }else{
@@ -120,11 +125,20 @@ public class App {
                                     + "\n 4-Realizar um empréstimo"
                                     + "\n 5-Sair da Conta"));
                             if (acao2 == 1) {
-                                JOptionPane.showMessageDialog(null, "Seu Saldo é de R$ " + clientePJ[i].getSaldo());
+                                JOptionPane.showMessageDialog(null, "Seu Saldo é de R$ " + clientePF[i].getSaldo());
                             }else if(acao2==2){
                                 clientePF[i].saque();
                             }else if(acao2==3){
                                 clientePF[i].deposito();
+                            }else if(acao2==4){
+                                clientePF[i].emprestimoPF();
+                                JOptionPane.showMessageDialog(null,"Valor Aprovado" + clientePF[i].getEmprestimoPF());
+                                
+                                JOptionPane.showMessageDialog(null, "Valor a ser pago é: " + clientePF[i].getValorPagar());
+                            }else if(acao2==5){
+                                acesso = false;
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Digite uma operação válida");
                             }
 
                         }

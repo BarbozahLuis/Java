@@ -24,13 +24,16 @@ public class ContaPJ extends Conta {
     }
 
     public void emprestimoPJ() {
-        double emprestimoPJ = Integer.parseInt(JOptionPane.showInputDialog(
+        emprestimoPJ = Integer.parseInt(JOptionPane.showInputDialog(
                 "Informe o valor de empréstimo desejado. Valor minimo de R$12.000,00 e valor máximo de R$150.000,00"));
 
-        if (emprestimoPJ >= 12000 && emprestimoPJ <= 15000) {
-            double valorTotal = emprestimoPJ * 0.004;
-            emprestimoPJ = valorTotal;
+        if (emprestimoPJ >= 12000 && emprestimoPJ <= 150000) {
+            saldo += emprestimoPJ;
+        }else if(emprestimoPJ<12000){ 
+            JOptionPane.showMessageDialog(null, "Informe um valor acima de 12.000,00");
+        }else{
+            JOptionPane.showMessageDialog(null, "Informe um valor abaixo de 150.000,00");
         }
-        saldo += emprestimoPJ;
+        
     }
 }
