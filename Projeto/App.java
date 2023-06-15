@@ -67,7 +67,13 @@ public class App {
                             if (acao2 == 1) {
                                 JOptionPane.showMessageDialog(null,"Seu Saldo é de R$ " + clientePJ[i].getSaldo());
                             }else if(acao2==2){
-                                clientePJ[i].saque();}
+                                clientePJ[i].saque();
+                            }else if(acao2==3){
+                                clientePJ[i].deposito();
+                            }else if(acao2==4){
+                                clientePJ[i].emprestimoPJ();
+                                JOptionPane.showMessageDialog(null,"Valor Aprovado" + clientePJ[i].getEmprestimoPJ());
+                            }
                         }
                     }else{
                         aberto = false;
@@ -85,8 +91,8 @@ public class App {
                         // criar um objeto
                         clientePF[contPF] = new ContaPF();// chamei o contrutor
                         // preencher os atributos do objeto
-                        clientePF[contPF].setNomeConta(JOptionPane.showInputDialog("Informe o nome da empresa:"));
-                        clientePF[contPF].setCpf(JOptionPane.showInputDialog("Informe o CNPJ da empresa"));
+                        clientePF[contPF].setNomeConta(JOptionPane.showInputDialog("Informe seu nome completo:"));
+                        clientePF[contPF].setCpf(JOptionPane.showInputDialog("Informe seu CPF"));
                         clientePF[contPF].setnConta(2000 + contPF);
                         clientePF[contPF].setSaldo(0);
                         // acrescimo no contador
@@ -117,6 +123,8 @@ public class App {
                                 JOptionPane.showMessageDialog(null, "Seu Saldo é de R$ " + clientePJ[i].getSaldo());
                             }else if(acao2==2){
                                 clientePF[i].saque();
+                            }else if(acao2==3){
+                                clientePF[i].deposito();
                             }
 
                         }
