@@ -10,7 +10,7 @@ import Projeto.Pessoas.ContaPJ;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // criar vetor para armazenar quantidade de contas poderão ser armazenada
+        // criar vetor para armazenar quantidade de contas que poderão ser armazenada
         ContaPJ clientePJ[] = new ContaPJ[10];
         ContaPF clientePF[] = new ContaPF[10];
         // começar meu banco
