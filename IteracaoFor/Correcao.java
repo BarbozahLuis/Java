@@ -2,7 +2,7 @@ package IteracaoFor;
 
 import java.util.Scanner;
 
-import javax.sql.rowset.spi.SyncResolver;
+
 
 public class Correcao {
     Scanner sc = new Scanner(System.in);
