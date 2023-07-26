@@ -2,18 +2,19 @@ package RevisaoPOO.Cadastro;
 
 public class Outro extends Animal{
     String raça;
-    String qtdePatas;
+    String especie;
     public String getEspecie() {
         return especie;
     }
     public void setEspecie(String especie) {
         this.especie = especie;
     }
-    public String getQtdePatas() {
-        return qtdePatas;
+    public String getRaça() {
+        return raça;
     }
-    public void setQtdePatas(String qtdePatas) {
-        this.qtdePatas = qtdePatas;
+    public void setRaça(String raça) {
+        this.raça = raça;
     }
+    
 
 }

@@ -4,14 +4,14 @@ public class Animal {
     //atributos
     String nome;
     String peso;
-    String especie;
     String proprietario;
+    String sexo;
+    
     //métodos
     //construtor cheio
-    public Animal(String nome, String peso, String especie, String proprietario) {
+    public Animal(String nome, String peso, String proprietario) {
         this.nome = nome;
         this.peso = peso;
-        this.especie = especie;
         this.proprietario = proprietario;
     }
     //construtor vazio
@@ -28,12 +28,6 @@ public class Animal {
     }
     public void setPeso(String peso) {
         this.peso = peso;
-    }
-    public String getEspecie() {
-        return especie;
-    }
-    public void setEspecie(String especie) {
-        this.especie = especie;
     }
     public String getProprietario() {
         return proprietario;
