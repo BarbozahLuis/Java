@@ -5,7 +5,7 @@ public class Animal {
     String nome;
     String peso;
     String proprietario;
-    String sexo;
+    int cadastro;
     
     //métodos
     //construtor cheio
@@ -34,6 +34,12 @@ public class Animal {
     }
     public void setProprietario(String proprietario) {
         this.proprietario = proprietario;
+    }
+    public int getCadastro() {
+        return cadastro;
+    }
+    public void setCadastro(int cadastro) {
+        this.cadastro = cadastro;
     }
     
 

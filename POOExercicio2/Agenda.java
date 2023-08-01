@@ -25,5 +25,14 @@ public class Agenda {
     public void setAltura(double altura) {
         this.altura = altura;
     }
+    public void setCadastro(String showInputDialog) {
+    }
+    public void setData(String showInputDialog) {
+    }
+    public void setHora(String showInputDialog) {
+    }
+    public Object getDataHora() {
+        return null;
+    }
     
 }

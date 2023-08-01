@@ -1,25 +1,35 @@
 package RevisaoPOO.Agenda;
 
-public class Agenda {
+import RevisaoPOO.Cadastro.Animal;
+
+public class Agenda extends Animal{
     String data;
-    String horário;
-    String nomeC;
+    String hora;
+    String servico;
+    String dataHora; 
     public String getData() {
         return data;
     }
     public void setData(String data) {
         this.data = data;
     }
-    public String getHorário() {
-        return horário;
+    public String getHora() {
+        return hora;
     }
-    public void setHorário(String horário) {
-        this.horário = horário;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
-    public String getNomeC() {
-        return nomeC;
+    public String getServico() {
+        return servico;
     }
-    public void setNomeC(String nomeC) {
-        this.nomeC = nomeC;
+    public void setServico(String servico) {
+        this.servico = servico;
+    }
+    public String getDataHora() {
+        dataHora = data + hora;
+        return dataHora;
+    }
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
 }
