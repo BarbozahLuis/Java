@@ -2,8 +2,8 @@ package EstudoArrayList;
 
 public class App {
     public static void main(String[] args) {
-       // ExemploArrayList obj1 = new ExemploArrayList();
-       // obj1.teste();
+        ExemploArrayList obj1 = new ExemploArrayList();
+        obj1.teste();
         ExemploLinkedList obj2 = new ExemploLinkedList();
         obj2.teste();
 
