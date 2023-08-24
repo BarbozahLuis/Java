@@ -1,12 +1,12 @@
 package Exception;
 
-import java.util.Scanner;
+
 
 import javax.swing.JOptionPane;
 
 public class ExemploTryCatch {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        
         boolean rodando = true;
         while (rodando) {
             JOptionPane.showMessageDialog(null, "Bem vindo a calculadora");
