@@ -28,6 +28,8 @@ public class ExemploGridLayout {
         painel1.add(new JButton("8"));
         painel1.add(new JButton("-"));
         painel1.add(new JButton("9"));
+        painel1.add(new JButton("+"));
+        painel1.add(new JButton("="));
         //config janela1 
         janela1.setBounds(500, 500, 500, 500);
         janela1.setDefaultCloseOperation(2);
