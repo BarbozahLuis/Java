@@ -4,11 +4,11 @@ import javax.swing.JPanel;
 
 import java.awt.FlowLayout;
 
-public class ContainerComponentes extends JFrame{
-    public ContainerComponentes() {
+public class ContainerComponentes extends JFrame{ //container é aquilo que contem alguma coisa, uma caixa que irá conter COMPONENTES
+    public ContainerComponentes() {//construtor
         //super("Exemplo Janela");
         //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //this.setBounds(200, 200, 400, 400);
+        this.setBounds(200, 200, 400, 400); // x e y distancia da caixa referente a tela, e as outras informações são as medidas do tamanho da caixa
         //FlowLayout flow = new FlowLayout();
        
         //this.setLayout(flow);
