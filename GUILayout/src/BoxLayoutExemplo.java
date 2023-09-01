@@ -15,7 +15,8 @@ public class BoxLayoutExemplo extends JFrame {
         this.add(painel2, BorderLayout.SOUTH);
         //setar o layout dos paineis
         painel1.setLayout(new BoxLayout(painel1, BoxLayout.Y_AXIS));
-        painel2.setLayout(new BoxLayout(painel2, BoxLayout.X_AXIS));
+        painel2.setLayout(new BoxLayout(painel2
+        , BoxLayout.X_AXIS));
         //adicionar elementos aos paineis
         for (int i = 0; i < 5; i++) {
             painel1.add(new JButton(""+i+1));
