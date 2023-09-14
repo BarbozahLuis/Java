@@ -14,12 +14,14 @@ Layout Utilizado: A Calculadora 1 faz uso do GridLayout, organizando os elemento
 Funcionalidade: Esta calculadora calcula o Índice de Massa Corporal (IMC) com base no peso e altura inseridos pelo usuário.
 Prós: O GridLayout é adequado para organizar uma série de elementos de forma uniforme, mantendo a simplicidade da interface.
 Contras: A falta de validação de entrada e orientações sobre os resultados do IMC são áreas de melhoria.
+
 Calculadora 2 (BoxLayout):
 
 Layout Utilizado: A Calculadora 2 utiliza o BoxLayout com orientação vertical (Y_AXIS) para organizar os componentes.
 Funcionalidade: Essa calculadora permite a conversão entre Real (BRL), Euro (EUR) e Dólar Americano (USD).
 Prós: O BoxLayout cria uma organização vertical eficaz, tornando a interface intuitiva para conversões rápidas de moedas.
 Contras: A falta de atualização automática das taxas de câmbio e a ausência de validação de entrada são limitações.
+
 Calculadora 3 (Múltiplos Painéis):
 
 Layout Utilizado: A Calculadora 3 emprega múltiplos JPanel para organizar os componentes.
@@ -33,11 +35,13 @@ GridLayout (Calculadora 1):
 Simplicidade de layout.
 Organização adequada para poucos elementos.
 Necessidade de validação de entrada e orientação ao usuário.
+
 BoxLayout (Calculadora 2):
 
 Boa organização vertical.
 Interface intuitiva.
 Limitações incluem taxas de câmbio fixas e falta de validação de entrada.
+
 Múltiplos Painéis (Calculadora 3):
 
 Flexibilidade na organização da interface.
