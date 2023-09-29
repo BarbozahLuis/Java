@@ -33,16 +33,21 @@ GridLayout (Calculadora 1):
 Simplicidade de layout.
 Organização adequada para poucos elementos.
 Necessidade de validação de entrada e orientação ao usuário.
+
 BoxLayout (Calculadora 2):
 
 Boa organização vertical.
 Interface intuitiva.
 Limitações incluem taxas de câmbio fixas e falta de validação de entrada.
+
 Múltiplos Painéis (Calculadora 3):
 
 Flexibilidade na organização da interface.
 Execução rápida de operações matemáticas.
 Requer validação de entrada e tratamento de erros.
+
+
+
 Reflexão sobre a Experiência de Aprendizado e Aplicação Futura
 
 A análise dessas calculadoras demonstra a importância crítica de escolher o layout apropriado ao criar interfaces gráficas. Cada layout possui suas próprias características e é mais adequado a diferentes tipos de aplicativos e necessidades de usabilidade. Além disso, a validação de entrada e o tratamento de erros emergiram como áreas essenciais para aprimorar a robustez das aplicações.
