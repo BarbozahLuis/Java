@@ -35,6 +35,7 @@ public class Exercicio5Correcao extends JFrame {
         JPanel card3 = new JPanel();
         card3.add(new JLabel("onde foi a copa 70"));
         JTextField resposta2 = new JTextField(20);
+        
         card3.add(resposta2);
         JButton but3 = new JButton("Next");
         card3.add(but3);
