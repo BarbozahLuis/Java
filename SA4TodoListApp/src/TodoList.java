@@ -15,6 +15,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TodoList extends JFrame {
+
+    
     // atributos
     private JPanel mainPanel;// painel principal
     private JTextField inputP;// no painel a entrada de dados q será o texto
@@ -29,13 +31,17 @@ public class TodoList extends JFrame {
 
     // construtor
     public TodoList() {
+
+
+        
         // Configuração da janela principal
         super("To-Do List App");
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        this.setSize(400, 300);
+        this.setSize(450, 350);
         // Inicializa o painel principal
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
+        mainPanel.setBackground(new Color(255, 204, 0)); // Amarelo Lakers (#FFCC00)
         // Inicializa a lista de tasks e a lista de tasks concluídas
         tasks = new ArrayList<>();
         listModel = new DefaultListModel<>();
@@ -47,6 +53,19 @@ public class TodoList extends JFrame {
         markDoneButton = new JButton("Concluir");
         filterComboBox = new JComboBox<>(new String[] { "Todas", "Ativas", "Concluídas" });
         limparConcluidas = new JButton("Limpar Concluídas");
+
+        // Defina as cores dos botões
+        addButton.setBackground(new Color(125, 48, 168)); // Roxo Lakers (#7D30A8)
+        addButton.setForeground(new Color(255, 204, 0)); // Amarelo Lakers (#FFCC00)
+        
+        deleteButton.setBackground(new Color(125, 48, 168)); // Roxo Lakers (#7D30A8)
+        deleteButton.setForeground(new Color(255, 204, 0)); // Amarelo Lakers (#FFCC00)
+        
+        markDoneButton.setBackground(new Color(125, 48, 168)); // Roxo Lakers (#7D30A8)
+        markDoneButton.setForeground(new Color(255, 204, 0)); // Amarelo Lakers (#FFCC00)
+
+        limparConcluidas.setBackground(new Color(125, 48, 168)); // Roxo Lakers (#7D30A8)
+        limparConcluidas.setForeground(new Color(255, 204, 0)); // Amarelo Lakers (#FFCC00)
 
         // Configuração do painel de entrada
         JPanel inputPanel = new JPanel(new BorderLayout());
@@ -64,6 +83,9 @@ public class TodoList extends JFrame {
         mainPanel.add(inputPanel, BorderLayout.NORTH);
         mainPanel.add(new JScrollPane(taskList), BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        //alterar cor do text field para dourado
+        inputP.setBackground(new Color(255, 204, 0)); 
 
         // Adiciona o painel principal à janela
         this.add(mainPanel);
@@ -145,7 +167,7 @@ public class TodoList extends JFrame {
             }
         }
     });
-    
+    //fecha a aplicação quando apertar no "X"
     addWindowListener(new WindowAdapter() {
         public void windowClosing(WindowEvent event) {
             int choice = JOptionPane.showConfirmDialog(null, "Deseja realmente fechar a aplicação?", "Fechar Aplicação", JOptionPane.YES_NO_OPTION);
