@@ -162,6 +162,10 @@ public class TodoList extends JFrame {
                 
                 markTaskDone();
             }else if(avisoAcao == 2){
+
+
+                
+
                 deleteTask();
             }
             }
