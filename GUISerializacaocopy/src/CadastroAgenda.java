@@ -93,12 +93,6 @@ public class CadastroAgenda extends JPanel {
                 inputUsuario.setText("");
                 inputDescricao.setText("");
             }
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-            }
         });
         //atualizar agenda
         atualizarButton.addActionListener(new ActionListener() {
