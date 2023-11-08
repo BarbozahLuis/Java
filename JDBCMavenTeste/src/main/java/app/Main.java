@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 try {
 Statement s; // Cria uma instância de Statement para executar comandos SQL.
-String usuario = "postgres"; // Nome de usuário do banco de dados.
+String usuario = "postgres"; // Nome de usuário do banco de dados. (adm do banco de dados)
 String senha = "postgres"; // Senha do banco de dados.
 String url = "jdbc:postgresql://localhost:5432/postgres"; // URL de conexãocom o banco de dados PostgreSQL.
 
@@ -19,8 +19,8 @@ s = c.createStatement(); // Cria um objeto Statement a partir da conexão.
 // ser substituídos pelos valores reais a serem inseridos.
 s.execute("INSERT INTO contato2 VALUES('10', 'nome', 'email')");
 c.close(); // Fecha a conexão com o banco de dados após a conclusão da operação.
-} catch (Exception E) {
-System.out.println("\n" + E); // Captura e imprime qualquer exceção que ocorra durante a execução.
+} catch (Exception e) {
+System.out.println("\n" + e); // Captura e imprime qualquer exceção que ocorra durante a execução.
 }
 }
 }
