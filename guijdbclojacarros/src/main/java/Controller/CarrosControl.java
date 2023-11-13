@@ -26,12 +26,11 @@ this.table = table;
 // Método para atualizar a tabela de exibição com dados do banco de dados
     private void atualizarTabela() {
         tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela
-        carros = new CarrosDAO().listarTodos();
-        // Obtém os carros atualizados do banco de dados
-        for (Carros carro : carros) {
-            // Adiciona os dados de cada carro como uma nova linha na tabela Swing
-            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(),
+        carros = new CarrosDAO().listarTodos();//guardar todos os carros que estão no banco de dados
 
+        // Adiciona os dados de cada carro como uma nova linha na tabela Swing
+        for (Carros carro : carros) {
+            tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(),
                     carro.getAno(), carro.getPlaca(), carro.getValor() });
         }
     }

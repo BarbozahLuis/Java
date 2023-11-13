@@ -12,16 +12,18 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import Connection.CarrosDAO;
+import Controller.CarrosControl;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import Model.Carros;
 
 public class CarrosPainel extends JPanel {
     // Atributos(componentes)
     private JButton cadastrar, apagar, editar;
-    private JTextField carMarcaField, carModeloField, carAnoField, carPlacaField,
-            carValorField;
+    private JTextField carMarcaField, carModeloField, carAnoField, carPlacaField, carValorField;
     private List<Carros> carros;
     private JTable table;
     private DefaultTableModel tableModel;
@@ -65,16 +67,45 @@ public class CarrosPainel extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
-        //criar o banco de dados
+        // criar o banco de dados
         new CarrosDAO().criaTabela();
-        //
+        // executa o metudo atualizar tabela
         atualizarTabela();
 
-        //tratamentos de eventos
+        // tratamentos de eventos
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                linhaSelecionada = table.rowAtPoint(evt.getPoint());
+                if (linhaSelecionada != -1) {
+                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    carAnoField.setText((String) table.getValueAt(linhaSelecionada, 2));
+                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 3));
+                    carValorField.setText((String) table.getValueAt(linhaSelecionada, 4));
+                }
+            }
+        });
 
+        // Cria um objeto operacoes da classe CarrosControl para executar operações no
+        // banco de dados
+        CarrosControl operacoes = new CarrosControl(carros, tableModel, table);
+
+        cadastrar.addActionListener(e -> {
+            // Chama o método "cadastrar" do objeto operacoes com os valores dos campos de
+            // entrada
+            operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(),
+                    carAnoField.getText(), carPlacaField.getText(), carValorField.getText());
+            // Limpa os campos de entrada após a operação de cadastro
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+        });
     }
 
-    //metodos (atualizar tabela)
+    // metodos (atualizar tabela)
     // metodo para atualizar a tabela de exibição com dados do banco de daados
     private void atualizarTabela() {
         tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela

@@ -50,8 +50,7 @@ public class CarrosDAO {
             rs = stmt.executeQuery();
             // Executa a consulta e armazena os resultados no ResultSet
             while (rs.next()) {
-                // Para cada registro no ResultSet, cria um objeto Carros com os valores do
-                // registro
+                // Para cada registro no ResultSet, cria um objeto Carros com os valores do registro
 
                 Carros carro = new Carros(
                         rs.getString("marca"),

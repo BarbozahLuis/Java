@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ConnectionFactory {
+public class ConnectionFactory {//fabrica de conexão, ela que abre a conexão e fecha a conexão
     // atributos
     private static final String url = "jdbc:postgresql://localhost:5432/postgres";
     private static final String usuario = "postgres"; // Nome do ADM do banco
