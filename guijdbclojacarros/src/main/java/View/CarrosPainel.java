@@ -103,6 +103,33 @@ public class CarrosPainel extends JPanel {
             carPlacaField.setText("");
             carValorField.setText("");
         });
+
+        editar.addActionListener(e -> {
+            // Chama o método "cadastrar" do objeto operacoes com os valores dos campos de
+            // entrada
+            operacoes.atualizar(carMarcaField.getText(), carModeloField.getText(),
+                    carAnoField.getText(), carPlacaField.getText(), carValorField.getText());
+            // Limpa os campos de entrada após a operação de cadastro
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+        });
+
+        apagar.addActionListener(e -> {
+            // Chama o método "cadastrar" do objeto operacoes com os valores dos campos de
+            // entrada
+            operacoes.apagar(carPlacaField.getText());
+            // Limpa os campos de entrada após a operação de cadastro
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+        });
+
+        
     }
 
     // metodos (atualizar tabela)
