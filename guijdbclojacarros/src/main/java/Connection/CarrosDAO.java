@@ -7,12 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import Connection.ConnectionFactory;
+
 import Model.Carros;
 
-/**
- * CarrosDAO
- */
 public class CarrosDAO {
     // atributo
     private Connection connection;
@@ -45,19 +42,21 @@ public class CarrosDAO {
         carros = new ArrayList<>();
         // Cria uma lista para armazenar os carros recuperados do banco de dados
         try {
-            stmt = connection.prepareStatement("SELECT * FROM carros_lojacarros");
+            String sql = "SELECT * FROM carros_lojacarros";
+            stmt = connection.prepareStatement(sql);
             // Prepara a consulta SQL para selecionar todos os registros da tabela
             rs = stmt.executeQuery();
             // Executa a consulta e armazena os resultados no ResultSet
             while (rs.next()) {
-                // Para cada registro no ResultSet, cria um objeto Carros com os valores do registro
+                // Para cada registro no ResultSet, cria um objeto Carros com os valores do
+                // registro
 
                 Carros carro = new Carros(
                         rs.getString("marca"),
                         rs.getString("modelo"),
                         rs.getString("ano"),
                         rs.getString("placa"),
-                        rs.getDouble("valor"));
+                        rs.getString("valor"));
                 carros.add(carro); // Adiciona o objeto Carros à lista de carros
             }
         } catch (SQLException ex) {
@@ -74,9 +73,10 @@ public class CarrosDAO {
     public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para cadastrar na tabela
-        String sql = "INSERT INTO carros_lojacarros (marca, modelo, ano, placa, valor)VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO carros_lojacarros (marca, modelo, ano, placa, valor) VALUES (?, ?, ?, ?, ?)";
         try {
             stmt = connection.prepareStatement(sql);
+
             stmt.setString(1, marca);
             stmt.setString(2, modelo);
             stmt.setString(3, ano);
@@ -84,7 +84,9 @@ public class CarrosDAO {
             stmt.setString(5, valor);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
-        } catch (SQLException e) {
+        } catch (
+
+        SQLException e) {
             throw new RuntimeException("Erro ao inserir dados no banco de dados.", e);
         } finally {
             ConnectionFactory.closeConnection(connection, stmt);

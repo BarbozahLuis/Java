@@ -14,8 +14,19 @@ public class JanelaPrincipal extends JFrame {
         // tab1 carros
         CarrosPainel tab1 = new CarrosPainel();
         jTPane.add("Carros", tab1);
+
+        VendasView venda = new VendasView();
+        jTPane.add("Vendas", venda);
+        
+        CadastroDeClientes cadastro = new CadastroDeClientes();
+        jTPane.add("Cadastro", cadastro);
+       
         setBounds(100, 100, 600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        jTPane.addChangeListener(e->{
+            venda.atualizarComboBox();
+        });
     }
 
     // métodos para tornar a janela visível

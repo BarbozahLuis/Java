@@ -1,27 +1,21 @@
 package Model;
 
 public class Carros {
-    //atributos
-    private String placa;
+    // atributos
     private String marca;
     private String modelo;
     private String ano;
-    private double valor;
-    //construtor
-    public Carros(String placa, String marca, String modelo, String ano, double valor) {
-        this.placa = placa;
+    private String placa;
+    private String valor;
+    // construtor
+    public Carros(String marca, String modelo, String ano, String placa, String valor) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
+        this.placa = placa;
         this.valor = valor;
     }
-    //getters and setters
-    public String getPlaca() {
-        return placa;
-    }
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
+     // getters setters
     public String getMarca() {
         return marca;
     }
@@ -40,13 +34,17 @@ public class Carros {
     public void setAno(String ano) {
         this.ano = ano;
     }
-    public double getValor() {
+    public String getPlaca() {
+        return placa;
+    }
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+    public String getValor() {
         return valor;
     }
-    public void setValor(double valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
-
-    
-    
+     
 }
