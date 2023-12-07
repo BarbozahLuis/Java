@@ -36,7 +36,7 @@ public class ExemploArrayList {
     }
 
     public void exercicio() {
-        //criar arraylist do tipo int + 5 valores
+        
         ArrayList<Integer> numero = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
