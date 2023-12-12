@@ -107,8 +107,7 @@ public class ClienteView extends JPanel {
     private void cadastrar() {
         Cliente novoCadastro = new Cliente(
                 cpfField.getText(),
-                nomeField.getText()
-        );
+                nomeField.getText());
         cadastros.add(novoCadastro);
     }
 

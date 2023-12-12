@@ -104,6 +104,21 @@ public class ProdutoDAO {
         return produtos; // Retorna a lista de vendas recuperados do banco de dados
     }
 
+    //cadastrar produto
+    public void cadastrar (String codigo, String nome, int quantidade, double preco){
+        PreparedStatement stmt = null;
+        String sql = "INSET INTO estoque_mercado (codigo, nome, quantidade, preco) VALUES (?, ?, ?, ?)";
+        try{
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, codigo);
+            stmt.setString(2, nome);
+            stmt.setInt(3, quantidade);
+            stmt.setDouble(4, preco);
+            stmt.executeUpdate();
+            System.out.println("Dados inseridos com sucesso");
+        }
+    }
+
 
     
 

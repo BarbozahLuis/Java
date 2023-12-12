@@ -6,10 +6,13 @@ public class Cliente {
     private String cpf;
     private String nome;
 
-    public Cliente(String text, String text2, Object object) {
+
+    public Cliente(String text, String text2) {
     }
 
-    public void CadastrodeClientes(String Ano, String cidade, String cpf, String dataNascimento, String endereco, String nome, String rg) {
+
+
+    public void CadastrodeClientes(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
     }
