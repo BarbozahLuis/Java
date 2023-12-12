@@ -21,7 +21,7 @@ import Model.Cliente;
 public class ClienteView extends JPanel {
 
     private JButton cadastrar, apagar, editar;
-    private JTextField rgField, cpfField, anoField, dataNascimentoField, nomeField, enderecoField, cidadeField;
+    private JTextField cpfField, nomeField;
     private List<Cliente> cadastros;
     private JTable table;
     private DefaultTableModel tableModel;
@@ -34,27 +34,12 @@ public class ClienteView extends JPanel {
         add(new JLabel("Cadastro de Pessoas"));
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(7, 2));
-        inputPanel.add(new JLabel("RG"));
-        rgField = new JTextField(20);
-        inputPanel.add(rgField);
         inputPanel.add(new JLabel("CPF"));
         cpfField = new JTextField(20);
         inputPanel.add(cpfField);
-        inputPanel.add(new JLabel("Ano"));
-        anoField = new JTextField(20);
-        inputPanel.add(anoField);
-        inputPanel.add(new JLabel("Data de Nascimento"));
-        dataNascimentoField = new JTextField(20);
-        inputPanel.add(dataNascimentoField);
         inputPanel.add(new JLabel("Nome"));
         nomeField = new JTextField(20);
         inputPanel.add(nomeField);
-        inputPanel.add(new JLabel("Endereço"));
-        enderecoField = new JTextField(20);
-        inputPanel.add(enderecoField);
-        inputPanel.add(new JLabel("Cidade"));
-        cidadeField = new JTextField(20);
-        inputPanel.add(cidadeField);
         add(inputPanel);
 
         JPanel botoes = new JPanel();
@@ -69,7 +54,7 @@ public class ClienteView extends JPanel {
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
         tableModel = new DefaultTableModel(new Object[][]{},
-                new String[]{"RG", "CPF", "Ano", "Data de Nascimento", "Nome", "Endereço", "Cidade"});
+                new String[]{"CPF", "Nome"});
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
@@ -81,13 +66,8 @@ public class ClienteView extends JPanel {
             public void mouseClicked(MouseEvent evt) {
                 linhaSelecionada = table.rowAtPoint(evt.getPoint());
                 if (linhaSelecionada != -1) {
-                    rgField.setText((String) table.getValueAt(linhaSelecionada, 0));
                     cpfField.setText((String) table.getValueAt(linhaSelecionada, 1));
-                    anoField.setText((String) table.getValueAt(linhaSelecionada, 2));
-                    dataNascimentoField.setText((String) table.getValueAt(linhaSelecionada, 3));
                     nomeField.setText((String) table.getValueAt(linhaSelecionada, 4));
-                    enderecoField.setText((String) table.getValueAt(linhaSelecionada, 5));
-                    cidadeField.setText((String) table.getValueAt(linhaSelecionada, 6));
                 }
             }
         });
@@ -126,13 +106,8 @@ public class ClienteView extends JPanel {
 
     private void cadastrar() {
         Cliente novoCadastro = new Cliente(
-                rgField.getText(),
                 cpfField.getText(),
-                anoField.getText(),
-                dataNascimentoField.getText(),
-                nomeField.getText(),
-                enderecoField.getText(),
-                cidadeField.getText()
+                nomeField.getText()
         );
         cadastros.add(novoCadastro);
     }
@@ -140,13 +115,8 @@ public class ClienteView extends JPanel {
     private void editar() {
         if (linhaSelecionada != -1) {
             Cliente cadastroSelecionado = cadastros.get(linhaSelecionada);
-            cadastroSelecionado.setRg(rgField.getText());
             cadastroSelecionado.setCpf(cpfField.getText());
-            cadastroSelecionado.setAno(anoField.getText());
-            cadastroSelecionado.setDataNascimento(dataNascimentoField.getText());
             cadastroSelecionado.setNome(nomeField.getText());
-            cadastroSelecionado.setEndereco(enderecoField.getText());
-            cadastroSelecionado.setCidade(cidadeField.getText());
         }
     }
 
@@ -160,18 +130,13 @@ public class ClienteView extends JPanel {
     private void atualizarTabela() {
         tableModel.setRowCount(0);
         for (Cliente cadastro : cadastros) {
-            tableModel.addRow(new Object[]{cadastro.getRg(), cadastro.getCpf(), cadastro.getAno(),
-                cadastro.getDataNascimento(), cadastro.getNome(), cadastro.getEndereco(), cadastro.getCidade()});
+            tableModel.addRow(new Object[]{ cadastro.getCpf(),
+             cadastro.getNome()});
         }
     }
 
     private void limparCampos() {
-        rgField.setText("");
         cpfField.setText("");
-        anoField.setText("");
-        dataNascimentoField.setText("");
         nomeField.setText("");
-        enderecoField.setText("");
-        cidadeField.setText("");
     }
 }

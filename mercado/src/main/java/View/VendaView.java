@@ -2,6 +2,10 @@ package View;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import Model.Produtos;
+import Model.Venda;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,10 +28,10 @@ public class VendaView extends JPanel {
         cpfButton.addActionListener(e->{
             JOptionPane.showInputDialog(null, "Digite o CPF");
         });
-        
+
         codigoProdutoField = new JTextField(10);
         JButton adicionarButton = new JButton("Adicionar");
-        
+
         adicionarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,9 +53,19 @@ public class VendaView extends JPanel {
         tableModel.addColumn("Preço");
         JTable table = new JTable(tableModel);
 
+        // Adiciona um botão para finalizar a compra
+        JButton finalizarCompraButton = new JButton("Finalizar Compra");
+        finalizarCompraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                finalizarCompra();
+            }
+        });
+
         // Adiciona os componentes ao painel principal
         panel.add(inputPanel, BorderLayout.NORTH);
         panel.add(new JScrollPane(table), BorderLayout.CENTER);
+        panel.add(finalizarCompraButton, BorderLayout.SOUTH);
 
         // Adiciona o painel principal à janela
         add(panel);
@@ -68,55 +82,33 @@ public class VendaView extends JPanel {
         String codigoProduto = codigoProdutoField.getText();
         // Suponha que você tenha uma classe Produto com os atributos codigo, nome e
         // preco
-        Produto produto = buscarProdutoPorCodigo(codigoProduto);
+        buscarProdutoPorCodigo(codigoProduto);
 
-        if (produto != null) {
-            // Adiciona uma nova linha à tabela com as informações do produto (colocar
+        if (vendas != null) {
+            // Adiciona uma nova linha à tabela com as informações do venda (colocar
             // mensagem de erro)
-            tableModel.addRow(new Object[] { produto.getCodigo(), produto.getNome(), produto.getPreco(),
-                    produto.getQuantidade() });
+            tableModel.addRow(new Object[]{vendas.getCodigo(), vendas.getNome(), vendas.getPreco(),
+                    vendas.getQuantidade()});
         } else {
             JOptionPane.showMessageDialog(this, "Produto não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    private void finalizarCompra() {
+        // Lógica para finalizar a compra (pode exibir uma mensagem ou realizar outras ações)
+        JOptionPane.showMessageDialog(this, "Compra finalizada com sucesso!", "Compra Finalizada", JOptionPane.INFORMATION_MESSAGE);
+        // Limpar a tabela ou realizar outras ações necessárias
+        tableModel.setRowCount(0);
+    }
+
     // Método fictício para buscar informações do produto pelo código
-    private Produto buscarProdutoPorCodigo(String codigo) {
+    private Produtos buscarProdutoPorCodigo(String codigo) {
         // Implemente a lógica de busca do produto no banco de dados ou em alguma
         // estrutura de dados
         // Neste exemplo, estamos retornando um produto fictício
-        return new Produto(codigo, "Produto Exemplo", 10.99, 1);
+        return new Produtos(codigo, "Produto Exemplo", 10.99, 1);
     }
 
     // Classe fictícia para representar um produto
-    private class Produto {
-        private String codigo;
-        private String nome;
-        private double preco;
-        private int quantidade;
-
-        public Produto(String codigo, String nome, double preco, int quantidade) {
-            this.codigo = codigo;
-            this.nome = nome;
-            this.preco = preco;
-            this.quantidade = quantidade;
-        }
-
-        public String getCodigo() {
-            return codigo;
-        }
-
-        public String getNome() {
-            return nome;
-        }
-
-        public double getPreco() {
-            return preco;
-        }
-
-        public int getQuantidade() {
-            return quantidade;
-        }
-    }
-
+    
 }
