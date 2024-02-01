@@ -1,42 +1,64 @@
 package View;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Janela {
-    public ElevatorControlSystem() {
-        setTitle("Sistema de Controle de Elevadores"); //titulo da pagina
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quando fechar a tela o programa será encerrado
-        setSize(400, 300); // define o tamanho da janela 
-        setLayout(new BorderLayout()); // define o tipo de layout, neste caso o borderlayout, utilizado para organizar os componentes em regiao
+public class Janela extends JFrame{
 
+    private JLabel statusLabel;
+    private JButton[] botao;
+
+    public Janela(){
+
+        
+
+        setTitle("Simulação de Prédio");
+        setSize(300, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         statusLabel = new JLabel("Status: Inicializando...");
         add(statusLabel, BorderLayout.NORTH);
 
-        JPanel floorPanel = new JPanel(new GridLayout(9, 1));
-        floorButtons = new JButton[9];
+        // Criando os andares do prédio
+        JPanel predio = new JPanel();
+        predio.setLayout(new BoxLayout(predio, BoxLayout.Y_AXIS));
+        
+        // Adicionando os andares ao prédio
         for (int i = 0; i < 9; i++) {
-            floorButtons[i] = new JButton("Andar " + i);
-            int floorNumber = i;
-            floorButtons[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    requestElevator(floorNumber);
-                }
-            });
-            floorPanel.add(floorButtons[i]);
-        }
-        add(floorPanel, BorderLayout.CENTER);
+            JPanel andar = new JPanel();
+            andar.setBorder(BorderFactory.createTitledBorder("Andar " + (i+1)));
+            andar.setPreferredSize(new java.awt.Dimension(280, 60));
+            
+            // Adicionando botões para representar apartamentos no andar
+            botao = new JButton[9];
+            for (int j = 0; j < 1; j++) {
+                botao[i] = new JButton("Apartamento " + (j+1));
+                int numeroAndar = i;
+                botao[i].addActionListener(new ActionListener(){
 
-        elevators = new Elevator[2]; // Dois elevadores
-        for (int i = 0; i < 2; i++) {
-            elevators[i] = new Elevator();
-            elevators[i].start();
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // TODO Auto-generated method stub
+                        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+                    }
+                    
+                });
+            }
+            
+            predio.add(andar);
         }
-
+        
+        getContentPane().add(predio);
         setVisible(true);
-    }
-
-}
+        
+}}
