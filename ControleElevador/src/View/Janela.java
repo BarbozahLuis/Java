@@ -13,10 +13,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Controller.Elevadores;
+
 public class Janela extends JFrame{
 
     private JLabel statusLabel;
     private JButton[] botao;
+
+
 
     public Janela(){
 
@@ -32,6 +36,9 @@ public class Janela extends JFrame{
         // Criando os andares do prédio
         JPanel predio = new JPanel();
         predio.setLayout(new BoxLayout(predio, BoxLayout.Y_AXIS));
+
+        Elevadores obj = new Elevadores();
+        
         
         // Adicionando os andares ao prédio
         for (int i = 0; i < 9; i++) {
@@ -48,9 +55,10 @@ public class Janela extends JFrame{
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        // TODO Auto-generated method stub
+                        obj.moveElevator(i);
                         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
                     }
+                    
                     
                 });
             }

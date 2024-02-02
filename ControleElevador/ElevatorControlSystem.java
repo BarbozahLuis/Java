@@ -65,6 +65,7 @@ public class ElevatorControlSystem extends JFrame {
                     break;
                 }
             }
+            
         }
 
         @Override
